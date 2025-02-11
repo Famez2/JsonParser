@@ -1,6 +1,10 @@
 ﻿using DotNetEnv;
+using JsonParser.Abstractions.Application.Interfaces;
+using JsonParser.Application.Services;
 using JsonParser.Persistence;
+using JsonParser.ViewModels;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System.Configuration;
 using System.Data;
 using System.Windows;
@@ -12,17 +16,34 @@ namespace JsonParserApp;
 /// </summary>
 public partial class App : Application
 {
+    public static IServiceProvider ServiceProvider { get; private set; }
+
     public App()
     {
         Env.Load();
+        var connectionString = Env.GetString("DATABASE_CONNECTION", "Data Source=default.db");
 
-        var connectionString = Env.GetString("DATABASE_CONNECTION");
+        var services = new ServiceCollection();
 
-        var optionsBuilder = new DbContextOptionsBuilder<ParseJsonDbContext>();
-        optionsBuilder.UseSqlite(connectionString);
+        services.AddDbContext<ParseJsonDbContext>(options => options.UseSqlite(connectionString));
 
+        services.AddScoped<IParseJsonDbContext>(provider => provider.GetRequiredService<ParseJsonDbContext>());
 
-        InitializeComponent();
+        services.AddSingleton<ISaveParseJsonService, SaveParseJsonService>();
+        services.AddSingleton<IGetParseJsonService, GetParseJsonService>();
+
+        services.AddSingleton<MainWindow>();
+
+        services.AddSingleton<MainViewModel>();
+
+        ServiceProvider = services.BuildServiceProvider();
+    }
+
+    protected override void OnStartup(StartupEventArgs e)
+    {
+        base.OnStartup(e);
+
+        var mainWindow = ServiceProvider.GetRequiredService<MainWindow>();
+        mainWindow.Show();
     }
 }
-

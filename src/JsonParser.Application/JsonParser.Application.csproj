@@ -6,4 +6,13 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JsonParser.Domain\JsonParser.Domain.csproj" />
+    <ProjectReference Include="..\JsonParser.Persistence\JsonParser.Persistence.csproj" />
+  </ItemGroup>
+
 </Project>

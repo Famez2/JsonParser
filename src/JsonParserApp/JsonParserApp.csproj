@@ -19,7 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\JsonParser.Application\JsonParser.Application.csproj" />
     <ProjectReference Include="..\JsonParser.Persistence\JsonParser.Persistence.csproj" />
+    <ProjectReference Include="..\JsonParser.ViewModels\JsonParser.ViewModels.csproj" />
   </ItemGroup>
 
 </Project>

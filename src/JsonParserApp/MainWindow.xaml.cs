@@ -1,15 +1,7 @@
-﻿using JsonParser.Persistence;
-using Microsoft.EntityFrameworkCore;
-using System.Text;
+﻿using JsonParser.Application.Services;
+using JsonParser.ViewModels;
+using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace JsonParserApp;
 
@@ -18,8 +10,26 @@ namespace JsonParserApp;
 /// </summary>
 public partial class MainWindow : Window
 {
-    public MainWindow()
+    private readonly MainViewModel _viewModel;
+
+    public MainWindow() : this(App.ServiceProvider.GetRequiredService<MainViewModel>())
+    {
+    }
+
+    public MainWindow(MainViewModel viewModel)
     {
         InitializeComponent();
+        _viewModel = viewModel;
+        DataContext = _viewModel;
+    }
+
+    private void SelectJsonFile_Click(object sender, RoutedEventArgs e)
+    {
+        _viewModel.SelectJsonFile();
+    }
+
+    private void LoadJson_Click(object sender, RoutedEventArgs e)
+    {
+        _viewModel.LoadDataAsync();
     }
 }

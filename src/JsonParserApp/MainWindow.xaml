@@ -5,8 +5,32 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:JsonParserApp"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="JSON Parser" Height="450" Width="800">
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Для кнопок -->
+            <RowDefinition Height="*"/>
+            <!-- Для DataGrid -->
+        </Grid.RowDefinitions>
+
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <Button Content="Выбрать JSON"
+                    Command="{Binding SelectJsonFileCommand}"
+                    Height="30" Width="150"
+                    Margin="0,0,10,0"/>
+
+            <Button Content="Загрузить JSON"
+                    Command="{Binding LoadJsonCommand}"
+                    Height="30" Width="150"/>
+        </StackPanel>
+
+        <DataGrid x:Name="DataGridCompanies"
+                  ItemsSource="{Binding Companies}"
+                  AutoGenerateColumns="True"
+                  Grid.Row="1"
+                  Margin="10"/>
     </Grid>
+
 </Window>
