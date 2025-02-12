@@ -1,4 +1,6 @@
-﻿namespace JsonParser.Domain.Entity;
+﻿using JsonParser.Domain.Entit;
+
+namespace JsonParser.Domain.Entity;
 
 public class ConstructionObject
 {
@@ -29,4 +31,10 @@ public class ConstructionObject
     public bool BeIncomingConfirmation { get; set; }
 
     public string BinaryData { get; set; }
+
+    public List<Reference> References { get; set; } = [];
+
+    public List<MessageFormat> MessageFormats { get; set; } = [];
+
+    public List<Knot> Knotes { get; set; } = [];
 }

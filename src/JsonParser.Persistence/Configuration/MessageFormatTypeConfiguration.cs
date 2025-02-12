@@ -11,5 +11,10 @@ public class MessageFormatTypeConfiguration : IEntityTypeConfiguration<MessageFo
         builder.ToTable("Message");
 
         builder.HasKey(x => x.Id);
+
+        builder
+            .HasOne(x => x.ConstructionObject)
+            .WithMany(x => x.MessageFormats)
+            .HasForeignKey(x => x.ObjectId);
     }
 }

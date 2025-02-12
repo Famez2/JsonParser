@@ -16,5 +16,10 @@ public class KnotTypeConfiguration : IEntityTypeConfiguration<Knot>
             .HasOne(x => x.Reference)
             .WithMany(x => x.Knotes)
             .HasForeignKey(x => x.ReferenceId);
+
+        builder
+            .HasOne(x => x.ConstructionObject)
+            .WithMany(x => x.Knotes)
+            .HasForeignKey(x => x.ObjectId);
     }
 }

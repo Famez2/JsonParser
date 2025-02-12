@@ -12,5 +12,9 @@ public class Reference
 
     public string Method { get; set; }
 
+    public Guid? ObjectId { get; set; }
+
+    public ConstructionObject? ConstructionObject { get; set; }
+
     public List<Knot> Knotes { get; set; } = [];
 }

@@ -9,4 +9,8 @@ public class MessageFormat
     public string Name { get; set; }
 
     public string Value { get; set; }
+
+    public Guid? ObjectId { get; set; }
+
+    public ConstructionObject? ConstructionObject { get; set; }
 }

@@ -11,5 +11,10 @@ public class ReferenceTypeConfiguration : IEntityTypeConfiguration<Reference>
         builder.ToTable(nameof(Reference));
 
         builder.HasKey(x => x.Id);
+
+        builder
+            .HasOne(x => x.ConstructionObject)
+            .WithMany(x => x.References)
+            .HasForeignKey(x => x.ObjectId);
     }
 }

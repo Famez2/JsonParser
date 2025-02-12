@@ -19,6 +19,8 @@ public class SaveParseJsonService : ISaveParseJsonService
     {
         var json = File.ReadAllText(filePath);
 
+        //var obj = JsonConvert.DeserializeObject<RootDto>(json);
+
         await _parseJsonDbContext.SaveChangesAsync();
     }
 }
