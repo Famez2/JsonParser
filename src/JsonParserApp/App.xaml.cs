@@ -1,5 +1,6 @@
 ﻿using DotNetEnv;
 using JsonParser.Abstractions.Application.Interfaces;
+using JsonParser.Application.Mappings;
 using JsonParser.Application.Services;
 using JsonParser.Persistence;
 using JsonParser.ViewModels;
@@ -34,6 +35,8 @@ public partial class App : Application
         services.AddSingleton<IGetParseJsonService, GetParseJsonService>();
 
         services.AddSingleton<MainWindow>();
+
+        services.AddAutoMapper(typeof(ConstructionObjectMappingProfile));
 
         services.AddSingleton<MainViewModel>();
 

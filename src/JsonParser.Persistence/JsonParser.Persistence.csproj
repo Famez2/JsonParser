@@ -20,4 +20,10 @@
     <ProjectReference Include="..\JsonParser.Abstractions\JsonParser.Abstractions.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="objects.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

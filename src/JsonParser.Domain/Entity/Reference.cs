@@ -10,7 +10,7 @@ public class Reference
 
     public string Name { get; set; }
 
-    public string Method { get; set; }
+    public string? Method { get; set; }
 
     public Guid? ObjectId { get; set; }
 
