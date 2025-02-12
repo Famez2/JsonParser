@@ -13,8 +13,8 @@ namespace JsonParser.ViewModels;
 
 public class MainViewModel : INotifyPropertyChanged
 {
-    private readonly ISaveConstructionObjectService _saveParseJsonService;
-    private readonly IGetConstructionObjectService _getParseJsonService;
+    private readonly ISaveConstructionObjectService _saveConstructionObjectService;
+    private readonly IGetConstructionObjectService _getConstructionObjectsService;
 
     private string _selectedFilePath = string.Empty;
     public string SelectedFilePath
@@ -29,6 +29,7 @@ public class MainViewModel : INotifyPropertyChanged
 
     private ObservableCollection<GetConstructionObjectsDTO.ConstructionObjectInfoModel> _constructionObjects =
         new ObservableCollection<GetConstructionObjectsDTO.ConstructionObjectInfoModel>();
+
     public ObservableCollection<GetConstructionObjectsDTO.ConstructionObjectInfoModel> ConstructionObjects
     {
         get => _constructionObjects;
@@ -41,16 +42,18 @@ public class MainViewModel : INotifyPropertyChanged
 
     public ICommand SelectJsonFileCommand { get; }
     public ICommand LoadJsonCommand { get; }
+    public ICommand ShowRecordsCommand { get; }  
 
     public MainViewModel(
-        ISaveConstructionObjectService saveParseJsonService,
-        IGetConstructionObjectService getParseJsonService)
+        ISaveConstructionObjectService saveConstructionObjectService,
+        IGetConstructionObjectService getConstructionObjectsService)
     {
-        _saveParseJsonService = saveParseJsonService;
-        _getParseJsonService = getParseJsonService;
+        _saveConstructionObjectService = saveConstructionObjectService;
+        _getConstructionObjectsService = getConstructionObjectsService;
 
         SelectJsonFileCommand = new RelayCommand(SelectJsonFile);
         LoadJsonCommand = new RelayCommand(LoadDataAsync);
+        ShowRecordsCommand = new RelayCommand(ShowRecords);  
     }
 
     public void SelectJsonFile()
@@ -75,12 +78,22 @@ public class MainViewModel : INotifyPropertyChanged
             return;
         }
 
-        // await _saveParseJsonService.SaveParsedJson(SelectedFilePath);
+        await _saveConstructionObjectService.SaveParsedJson(SelectedFilePath);
 
-        var getConstructionDto = await _getParseJsonService.GetCompaniesAsync();
+        var getConstructionDto = await _getConstructionObjectsService.GetCompaniesAsync();
 
-        // Очистка и заполнение коллекции
+        foreach (var obj in getConstructionDto.ConstructionObjects)
+        {
+            ConstructionObjects.Add(obj);
+        }
+    }
+
+    public async void ShowRecords()
+    {
         ConstructionObjects.Clear();
+
+        var getConstructionDto = await _getConstructionObjectsService.GetCompaniesAsync();
+
         foreach (var obj in getConstructionDto.ConstructionObjects)
         {
             ConstructionObjects.Add(obj);

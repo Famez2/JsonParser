@@ -1,12 +1,10 @@
 ﻿using JsonParser.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
+using System.Windows.Controls;
 
 namespace JsonParserApp;
 
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
 public partial class MainWindow : Window
 {
     private readonly MainViewModel _viewModel;
@@ -30,5 +28,15 @@ public partial class MainWindow : Window
     private void LoadJson_Click(object sender, RoutedEventArgs e)
     {
         _viewModel.LoadDataAsync();
+    }
+
+    private void DataGrid_AutoGeneratingColumn(object sender, DataGridAutoGeneratingColumnEventArgs e)
+    {
+        if (e.PropertyName == "Knotes" ||
+            e.PropertyName == "MessageFormates" ||
+            e.PropertyName == "References")
+        {
+            e.Cancel = true; 
+        }
     }
 }

@@ -6,11 +6,14 @@
         <StackPanel Margin="10">
             <Button Content="Выбрать JSON" Command="{Binding SelectJsonFileCommand}" Width="150" />
             <TextBlock Text="{Binding SelectedFilePath}" Margin="5" />
-
             <Button Content="Загрузить" Command="{Binding LoadJsonCommand}" Width="150" Margin="5" />
+            <Button Content="Показать записи" Command="{Binding ShowRecordsCommand}" Width="150" Margin="5" />
 
-            <DataGrid ItemsSource="{Binding ConstructionObjects}" AutoGenerateColumns="True"
-                      Height="300" Margin="5"/>
+            <DataGrid ItemsSource="{Binding ConstructionObjects}" 
+              AutoGenerateColumns="True"
+              AutoGeneratingColumn="DataGrid_AutoGeneratingColumn"
+              Height="300" Margin="5"/>
+
         </StackPanel>
     </Grid>
 </Window>

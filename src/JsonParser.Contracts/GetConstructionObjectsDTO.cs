@@ -34,11 +34,17 @@ public class GetConstructionObjectsDTO
 
         public string BinaryData { get; set; }
 
-        public List<KnotInfoModel> Knotes { get; set; }
+        public List<KnotInfoModel> Knotes { get; set; } = [];
 
-        public List<MessageFormatInfoModel> MessageFormates { get; set; }
+        public List<MessageFormatInfoModel> MessageFormates { get; set; } = [];
 
-        public List<ReferenceInfoModel> References { get; set; }
+        public List<ReferenceInfoModel> References { get; set; } = [];
+
+        public string KnotesString => string.Join(", ", Knotes.Select(k => k.Code));
+
+        public string MessageFormatsString => string.Join(", ", MessageFormates.Select(m => m.Name));
+
+        public string ReferencesString => string.Join(", ", References.Select(r => r.Name));
 
         public class ReferenceInfoModel
         {

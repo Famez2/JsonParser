@@ -6,15 +6,10 @@ using JsonParser.Persistence;
 using JsonParser.ViewModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
-using System.Configuration;
-using System.Data;
 using System.Windows;
 
 namespace JsonParserApp;
 
-/// <summary>
-/// Interaction logic for App.xaml
-/// </summary>
 public partial class App : Application
 {
     public static IServiceProvider ServiceProvider { get; private set; }
