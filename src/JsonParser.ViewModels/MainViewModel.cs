@@ -86,6 +86,7 @@ public class MainViewModel : INotifyPropertyChanged
             await _saveConstructionObjectService.SaveConstructionObjectJson(SelectedFilePath);
 
             var getConstructionDto = await _getConstructionObjectsService.GetConstructionObjectAsync();
+
             ConstructionObjects.Clear();
 
             foreach (var obj in getConstructionDto.ConstructionObjects)
