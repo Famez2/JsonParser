@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using JsonParser.Abstractions.Application.Interfaces;
 using JsonParser.Contracts;
-using JsonParser.Domain.Entity;
 using JsonParser.Persistence;
 using Microsoft.EntityFrameworkCore;
 
@@ -20,9 +19,10 @@ public class GetConstructionObjectService : IGetConstructionObjectService
         _mapper = mapper;
     }
 
-    public async Task<GetConstructionObjectsDTO> GetCompaniesAsync()
+    public async Task<GetConstructionObjectsDTO> GetConstructionObjectAsync()
     {
         var constructionObjects = await _parseJsonDbContext.ConstructionObject
+            .AsNoTracking()
             .Include(x => x.Knotes)
             .Include(x => x.References)
             .Include(x => x.MessageFormats)

@@ -20,7 +20,7 @@ public class SaveConstructionObjectService : ISaveConstructionObjectService
         _mapper = mapper;
     }
 
-    public async Task SaveParsedJson(string filePath)
+    public async Task SaveConstructionObjectJson(string filePath)
     {
         var json = File.ReadAllText(filePath);
 

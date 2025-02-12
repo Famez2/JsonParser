@@ -2,6 +2,5 @@
 
 public interface ISaveConstructionObjectService
 {
-    public Task SaveParsedJson(
-        string filePath);
+    public Task SaveConstructionObjectJson(string filePath);
 }

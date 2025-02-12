@@ -4,5 +4,5 @@ namespace JsonParser.Abstractions.Application.Interfaces;
 
 public interface IGetConstructionObjectService
 {
-    public Task<GetConstructionObjectsDTO> GetCompaniesAsync();
+    public Task<GetConstructionObjectsDTO> GetConstructionObjectAsync();
 }
