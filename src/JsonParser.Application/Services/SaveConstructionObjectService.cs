@@ -7,12 +7,12 @@ using Newtonsoft.Json;
 
 namespace JsonParser.Application.Services;
 
-public class SaveParseJsonService : ISaveParseJsonService
+public class SaveConstructionObjectService : ISaveConstructionObjectService
 {
     private readonly IParseJsonDbContext _parseJsonDbContext;
     private readonly IMapper _mapper;
 
-    public SaveParseJsonService(
+    public SaveConstructionObjectService(
         IParseJsonDbContext parseJsonDbContext,
         IMapper mapper)
     {
@@ -20,7 +20,7 @@ public class SaveParseJsonService : ISaveParseJsonService
         _mapper = mapper;
     }
 
-    public async Task ParseJson(string filePath)
+    public async Task SaveParsedJson(string filePath)
     {
         var json = File.ReadAllText(filePath);
 

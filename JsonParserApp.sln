@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonParser.ViewModels", "sr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonParser.Infrastructure", "src\JsonParser.Infrastructure\JsonParser.Infrastructure.csproj", "{E5C3CFF6-D8A8-4087-AA5D-C9486AB9515F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JsonParser.Contracts", "src\JsonParser.Contracts\JsonParser.Contracts.csproj", "{9C2E5A8A-6A25-441A-9704-0E6426B6EDA6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +58,10 @@ Global
 		{E5C3CFF6-D8A8-4087-AA5D-C9486AB9515F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5C3CFF6-D8A8-4087-AA5D-C9486AB9515F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5C3CFF6-D8A8-4087-AA5D-C9486AB9515F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C2E5A8A-6A25-441A-9704-0E6426B6EDA6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C2E5A8A-6A25-441A-9704-0E6426B6EDA6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C2E5A8A-6A25-441A-9704-0E6426B6EDA6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C2E5A8A-6A25-441A-9704-0E6426B6EDA6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{40ED7A1A-F843-4709-A4E5-A40142968116} = {2DB21F02-CE91-4C6F-82F3-6DE37D37DEF4}
@@ -65,5 +71,6 @@ Global
 		{4BB89421-008D-4099-BAE3-C98EE2658C16} = {2DB21F02-CE91-4C6F-82F3-6DE37D37DEF4}
 		{6091B3DE-26DA-413C-B0DE-FB8FEF9C15C6} = {2DB21F02-CE91-4C6F-82F3-6DE37D37DEF4}
 		{E5C3CFF6-D8A8-4087-AA5D-C9486AB9515F} = {2DB21F02-CE91-4C6F-82F3-6DE37D37DEF4}
+		{9C2E5A8A-6A25-441A-9704-0E6426B6EDA6} = {2DB21F02-CE91-4C6F-82F3-6DE37D37DEF4}
 	EndGlobalSection
 EndGlobal

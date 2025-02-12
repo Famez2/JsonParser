@@ -1,5 +1,4 @@
-﻿using JsonParser.Application.Services;
-using JsonParser.ViewModels;
+﻿using JsonParser.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using System.Windows;
 

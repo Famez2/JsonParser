@@ -20,7 +20,7 @@ namespace JsonParser.Persistence.Migrations
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
 
-            modelBuilder.Entity("JsonParser.Domain.Entit.Knot", b =>
+            modelBuilder.Entity("JsonParser.Domain.Entit.Knotes", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -37,7 +37,7 @@ namespace JsonParser.Persistence.Migrations
 
                     b.HasIndex("ReferenceId");
 
-                    b.ToTable("Knot", (string)null);
+                    b.ToTable("Knotes", (string)null);
                 });
 
             modelBuilder.Entity("JsonParser.Domain.Entity.ConstructionObject", b =>
@@ -96,7 +96,7 @@ namespace JsonParser.Persistence.Migrations
                     b.ToTable("ConstructionObject", (string)null);
                 });
 
-            modelBuilder.Entity("JsonParser.Domain.Entity.MessageFormat", b =>
+            modelBuilder.Entity("JsonParser.Domain.Entity.MessageFormates", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -119,7 +119,7 @@ namespace JsonParser.Persistence.Migrations
                     b.ToTable("Message", (string)null);
                 });
 
-            modelBuilder.Entity("JsonParser.Domain.Entity.Reference", b =>
+            modelBuilder.Entity("JsonParser.Domain.Entity.References", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -139,21 +139,21 @@ namespace JsonParser.Persistence.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Reference", (string)null);
+                    b.ToTable("References", (string)null);
                 });
 
-            modelBuilder.Entity("JsonParser.Domain.Entit.Knot", b =>
+            modelBuilder.Entity("JsonParser.Domain.Entit.Knotes", b =>
                 {
-                    b.HasOne("JsonParser.Domain.Entity.Reference", "Reference")
+                    b.HasOne("JsonParser.Domain.Entity.References", "References")
                         .WithMany("Knotes")
                         .HasForeignKey("ReferenceId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Reference");
+                    b.Navigation("References");
                 });
 
-            modelBuilder.Entity("JsonParser.Domain.Entity.Reference", b =>
+            modelBuilder.Entity("JsonParser.Domain.Entity.References", b =>
                 {
                     b.Navigation("Knotes");
                 });

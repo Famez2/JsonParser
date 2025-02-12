@@ -31,8 +31,8 @@ public partial class App : Application
 
         services.AddScoped<IParseJsonDbContext>(provider => provider.GetRequiredService<ParseJsonDbContext>());
 
-        services.AddSingleton<ISaveParseJsonService, SaveParseJsonService>();
-        services.AddSingleton<IGetParseJsonService, GetParseJsonService>();
+        services.AddScoped<ISaveConstructionObjectService, SaveConstructionObjectService>();
+        services.AddScoped<IGetConstructionObjectService, GetConstructionObjectService>();
 
         services.AddSingleton<MainWindow>();
 

@@ -1,7 +1,7 @@
 ﻿namespace JsonParser.Abstractions.Application.Interfaces;
 
-public interface ISaveParseJsonService
+public interface ISaveConstructionObjectService
 {
-    public Task ParseJson(
+    public Task SaveParsedJson(
         string filePath);
 }

@@ -13,11 +13,11 @@ namespace JsonParser.Persistence.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Knot_Reference_ReferenceId",
-                table: "Knot");
+                table: "Knotes");
 
             migrationBuilder.AddColumn<Guid>(
                 name: "ObjectId",
-                table: "Reference",
+                table: "References",
                 type: "TEXT",
                 nullable: true);
 
@@ -29,7 +29,7 @@ namespace JsonParser.Persistence.Migrations
 
             migrationBuilder.AlterColumn<Guid>(
                 name: "ReferenceId",
-                table: "Knot",
+                table: "Knotes",
                 type: "TEXT",
                 nullable: true,
                 oldClrType: typeof(Guid),
@@ -37,13 +37,13 @@ namespace JsonParser.Persistence.Migrations
 
             migrationBuilder.AddColumn<Guid>(
                 name: "ObjectId",
-                table: "Knot",
+                table: "Knotes",
                 type: "TEXT",
                 nullable: true);
 
             migrationBuilder.CreateIndex(
                 name: "IX_Reference_ObjectId",
-                table: "Reference",
+                table: "References",
                 column: "ObjectId");
 
             migrationBuilder.CreateIndex(
@@ -53,21 +53,21 @@ namespace JsonParser.Persistence.Migrations
 
             migrationBuilder.CreateIndex(
                 name: "IX_Knot_ObjectId",
-                table: "Knot",
+                table: "Knotes",
                 column: "ObjectId");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Knot_ConstructionObject_ObjectId",
-                table: "Knot",
+                table: "Knotes",
                 column: "ObjectId",
                 principalTable: "ConstructionObject",
                 principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Knot_Reference_ReferenceId",
-                table: "Knot",
+                table: "Knotes",
                 column: "ReferenceId",
-                principalTable: "Reference",
+                principalTable: "References",
                 principalColumn: "Id");
 
             migrationBuilder.AddForeignKey(
@@ -79,7 +79,7 @@ namespace JsonParser.Persistence.Migrations
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Reference_ConstructionObject_ObjectId",
-                table: "Reference",
+                table: "References",
                 column: "ObjectId",
                 principalTable: "ConstructionObject",
                 principalColumn: "Id");
@@ -90,11 +90,11 @@ namespace JsonParser.Persistence.Migrations
         {
             migrationBuilder.DropForeignKey(
                 name: "FK_Knot_ConstructionObject_ObjectId",
-                table: "Knot");
+                table: "Knotes");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_Knot_Reference_ReferenceId",
-                table: "Knot");
+                table: "Knotes");
 
             migrationBuilder.DropForeignKey(
                 name: "FK_Message_ConstructionObject_ObjectId",
@@ -102,11 +102,11 @@ namespace JsonParser.Persistence.Migrations
 
             migrationBuilder.DropForeignKey(
                 name: "FK_Reference_ConstructionObject_ObjectId",
-                table: "Reference");
+                table: "References");
 
             migrationBuilder.DropIndex(
                 name: "IX_Reference_ObjectId",
-                table: "Reference");
+                table: "References");
 
             migrationBuilder.DropIndex(
                 name: "IX_Message_ObjectId",
@@ -114,11 +114,11 @@ namespace JsonParser.Persistence.Migrations
 
             migrationBuilder.DropIndex(
                 name: "IX_Knot_ObjectId",
-                table: "Knot");
+                table: "Knotes");
 
             migrationBuilder.DropColumn(
                 name: "ObjectId",
-                table: "Reference");
+                table: "References");
 
             migrationBuilder.DropColumn(
                 name: "ObjectId",
@@ -126,11 +126,11 @@ namespace JsonParser.Persistence.Migrations
 
             migrationBuilder.DropColumn(
                 name: "ObjectId",
-                table: "Knot");
+                table: "Knotes");
 
             migrationBuilder.AlterColumn<Guid>(
                 name: "ReferenceId",
-                table: "Knot",
+                table: "Knotes",
                 type: "TEXT",
                 nullable: false,
                 defaultValue: new Guid("00000000-0000-0000-0000-000000000000"),
@@ -140,9 +140,9 @@ namespace JsonParser.Persistence.Migrations
 
             migrationBuilder.AddForeignKey(
                 name: "FK_Knot_Reference_ReferenceId",
-                table: "Knot",
+                table: "Knotes",
                 column: "ReferenceId",
-                principalTable: "Reference",
+                principalTable: "References",
                 principalColumn: "Id",
                 onDelete: ReferentialAction.Cascade);
         }

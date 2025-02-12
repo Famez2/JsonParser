@@ -38,5 +38,19 @@ public class ConstructionObjectMappingProfile : Profile
                 Value = src.MessageFormat.Value,
                 ObjectId = src.Id,
             }}));
+
+        CreateMap<ConstructionObject, GetConstructionObjectsDTO.ConstructionObjectInfoModel>()
+            .ForPath(dest => dest.References, opt => opt.MapFrom(src => src.References))
+            .ForPath(dest => dest.Knotes, opt => opt.MapFrom(src => src.Knotes))
+            .ForPath(dest => dest.MessageFormates, opt => opt.MapFrom(src => src.MessageFormats));
+
+        CreateMap<Reference, GetConstructionObjectsDTO.ConstructionObjectInfoModel.ReferenceInfoModel>();
+
+        CreateMap<MessageFormat, GetConstructionObjectsDTO.ConstructionObjectInfoModel.MessageFormatInfoModel>();
+
+        CreateMap<Knot, GetConstructionObjectsDTO.ConstructionObjectInfoModel.KnotInfoModel>();
+
+        CreateMap<List<ConstructionObject>, GetConstructionObjectsDTO>()
+            .ForMember(dest => dest.ConstructionObjects, opt => opt.MapFrom(src => src));
     }
 }

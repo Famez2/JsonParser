@@ -12,7 +12,7 @@ namespace JsonParser.Persistence.Migrations
         {
             migrationBuilder.AlterColumn<string>(
                 name: "Method",
-                table: "Reference",
+                table: "References",
                 type: "TEXT",
                 nullable: true,
                 oldClrType: typeof(string),
@@ -24,7 +24,7 @@ namespace JsonParser.Persistence.Migrations
         {
             migrationBuilder.AlterColumn<string>(
                 name: "Method",
-                table: "Reference",
+                table: "References",
                 type: "TEXT",
                 nullable: false,
                 defaultValue: "",

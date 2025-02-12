@@ -50,7 +50,7 @@ namespace JsonParser.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Reference",
+                name: "References",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
@@ -64,7 +64,7 @@ namespace JsonParser.Persistence.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Knot",
+                name: "Knotes",
                 columns: table => new
                 {
                     Id = table.Column<Guid>(type: "TEXT", nullable: false),
@@ -77,14 +77,14 @@ namespace JsonParser.Persistence.Migrations
                     table.ForeignKey(
                         name: "FK_Knot_Reference_ReferenceId",
                         column: x => x.ReferenceId,
-                        principalTable: "Reference",
+                        principalTable: "References",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Knot_ReferenceId",
-                table: "Knot",
+                table: "Knotes",
                 column: "ReferenceId");
         }
 
@@ -95,13 +95,13 @@ namespace JsonParser.Persistence.Migrations
                 name: "ConstructionObject");
 
             migrationBuilder.DropTable(
-                name: "Knot");
+                name: "Knotes");
 
             migrationBuilder.DropTable(
                 name: "Message");
 
             migrationBuilder.DropTable(
-                name: "Reference");
+                name: "References");
         }
     }
 }

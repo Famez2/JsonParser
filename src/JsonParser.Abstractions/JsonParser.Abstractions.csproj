@@ -14,4 +14,8 @@
     <ProjectReference Include="..\JsonParser.Domain\JsonParser.Domain.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\JsonParser.Contracts\JsonParser.Contracts.csproj" />
+  </ItemGroup>
+
 </Project>
