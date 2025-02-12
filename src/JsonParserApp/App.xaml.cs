@@ -21,7 +21,8 @@ public partial class App : Application
     public App()
     {
         Env.Load();
-        var connectionString = Env.GetString("DATABASE_CONNECTION", "Data Source=default.db");
+
+        var connectionString = "Data Source=objects.db";
 
         var services = new ServiceCollection();
 

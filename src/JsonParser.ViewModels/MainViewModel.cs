@@ -2,8 +2,6 @@
 using JsonParser.Domain.Entity;
 using JsonParser.Infrastructure;
 using Microsoft.Win32;
-using System;
-using System.Collections.ObjectModel;
 using System.IO;
 using System.Windows;
 using System.Windows.Input;
@@ -14,8 +12,6 @@ public class MainViewModel
 {
     private readonly ISaveParseJsonService _saveParseJsonService;
     private readonly IGetParseJsonService _getParseJsonService;
-
-    public ObservableCollection<Company> Companies { get; } = new();
     public string SelectedFilePath { get; set; } = string.Empty;
 
     public ICommand SelectJsonFileCommand { get; }
@@ -55,12 +51,5 @@ public class MainViewModel
         }
 
         await _saveParseJsonService.ParseJson(SelectedFilePath);
-        var companies = await _getParseJsonService.GetCompaniesAsync();
-
-        Companies.Clear();
-        foreach (var company in companies)
-        {
-            Companies.Add(company);
-        }
     }
 }

@@ -1,14 +1,23 @@
 ﻿using DotNetEnv;
 using JsonParser.Abstractions.Persistence.Base;
+using JsonParser.Domain.Entit;
 using JsonParser.Domain.Entity;
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace JsonParser.Persistence;
 
 public class ParseJsonDbContext : BaseDbContext, IParseJsonDbContext
 {
-    public DbSet<Company> Company { get; set; }
+    public DbSet<ConstructionObject> ConstructionObject { get; set; }
+
+    public DbSet<Knot> Knot { get; set; }
+
+    public DbSet<Reference> Reference { get; set; }
+
+    public DbSet<MessageFormat> MessageFormat { get; set; }
+
 
     public ParseJsonDbContext(DbContextOptions<ParseJsonDbContext> options)
         : base(options)
@@ -23,11 +32,7 @@ public class ParseJsonDbContext : BaseDbContext, IParseJsonDbContext
     {
         if (!optionsBuilder.IsConfigured)
         {
-            Env.Load();
-
-            var connectionString = Env.GetString("DATABASE_CONNECTION");
-
-            optionsBuilder.UseSqlite(connectionString);
+            optionsBuilder.UseSqlite("Data Source = objects.db");
         }
     }
 

@@ -3,6 +3,7 @@ using System;
 using JsonParser.Persistence;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace JsonParser.Persistence.Migrations
 {
     [DbContext(typeof(ParseJsonDbContext))]
-    partial class ParseJsonDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250212145152_AddTables_Knot_ConstructionObject_MessageFormat_Reference")]
+    partial class AddTables_Knot_ConstructionObject_MessageFormat_Reference
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");

@@ -14,8 +14,8 @@ public class GetParseJsonService : IGetParseJsonService
         _parseJsonDbContext = parseJsonDbContext;
     }
 
-    public async Task<List<Company>> GetCompaniesAsync()
+    public async Task GetCompaniesAsync()
     {
-        return await _parseJsonDbContext.Company.ToListAsync();
+        //return await _parseJsonDbContext.Company.ToListAsync();
     }
 }

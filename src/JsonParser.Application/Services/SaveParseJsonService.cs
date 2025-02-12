@@ -9,7 +9,7 @@ public class SaveParseJsonService : ISaveParseJsonService
 {
     private readonly IParseJsonDbContext _parseJsonDbContext;
 
-    public SaveParseJsonService (IParseJsonDbContext parseJsonDbContext)
+    public SaveParseJsonService(IParseJsonDbContext parseJsonDbContext)
     {
         _parseJsonDbContext = parseJsonDbContext;
     }
@@ -18,9 +18,6 @@ public class SaveParseJsonService : ISaveParseJsonService
         string filePath)
     {
         var json = File.ReadAllText(filePath);
-        var company = JsonConvert.DeserializeObject<Company>(json);
-
-        _parseJsonDbContext.Company.Add(company);
 
         await _parseJsonDbContext.SaveChangesAsync();
     }
