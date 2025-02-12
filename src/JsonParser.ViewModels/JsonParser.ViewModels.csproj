@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <UseWPF>true</UseWPF>
+    <OutputType>Library</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\JsonParser.Application\JsonParser.Application.csproj" />
+    <ProjectReference Include="..\JsonParser.Domain\JsonParser.Domain.csproj" />
+    <ProjectReference Include="..\JsonParser.Infrastructure\JsonParser.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
